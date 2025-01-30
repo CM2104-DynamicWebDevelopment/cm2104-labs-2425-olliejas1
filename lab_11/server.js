@@ -2,6 +2,7 @@
 var express = require('express');
 var app = express();
 app.use(express.static('public'))
+app.use(express.urlencoded({extended:true}))
 
 
 
@@ -38,6 +39,12 @@ app.get('/getform', function(req, res){
      res.send("Hi "+name+" I am sure you will "+quest) ;
     });
     
+
+    app.post('/postform', function(req, res){
+        var name = req.body.name;
+        var quest = req.body.quest;
+         res.send("Hi "+name+" I am sure you will "+quest) ;
+        });
 
 
 app.listen(8080);
