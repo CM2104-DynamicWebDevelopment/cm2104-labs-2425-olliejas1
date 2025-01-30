@@ -1,5 +1,9 @@
+
 var express = require('express');
 var app = express();
+
+app.use(express.static('public'))
+
 
 app.get('/', function(req, res){
  res.send("Hello world! by express");
@@ -26,5 +30,7 @@ app.get('/calc',function(req,res){
     else if (operator === "div)") res.send("Result =" + (x/y));
     else res.send("Invalid Operator");
 })
+
+
 
 app.listen(8080);
